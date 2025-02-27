@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://caimdsn57yual"]
+
+[ext_resource type="Texture2D" uid="uid://d02760qyrrot" path="res://assets/sprites_worldObjects.png" id="1_jt530"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1s4ge"]
+size = Vector2(69.975, 70)
+
+[node name="DirtTile" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_jt530")
+region_enabled = true
+region_rect = Rect2(70, 0, 70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0124989, 0)
+shape = SubResource("RectangleShape2D_1s4ge")

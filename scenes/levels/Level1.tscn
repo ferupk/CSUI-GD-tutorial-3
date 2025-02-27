@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsyfep1odrxje"]
+
+[ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/Ground.tscn" id="1_e3h3q"]
+[ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/Player.tscn" id="2_g50nx"]
+[ext_resource type="PackedScene" uid="uid://bbtcn6kgxwbq1" path="res://scenes/Spike.tscn" id="3_qq0c6"]
+[ext_resource type="Script" path="res://scenes/Stompable.gd" id="4_2jst3"]
+[ext_resource type="PackedScene" uid="uid://by820vl6ar4st" path="res://scenes/BreakableTile.tscn" id="5_ybfnu"]
+[ext_resource type="PackedScene" uid="uid://caimdsn57yual" path="res://scenes/DirtTile.tscn" id="6_1drh7"]
+[ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/Crystal.tscn" id="7_lfrc0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdq70"]
+size = Vector2(141, 95)
+
+[node name="Root" type="Node2D"]
+position = Vector2(0, -1)
+
+[node name="LevelGeometry" type="Node2D" parent="."]
+
+[node name="Ground" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
+position = Vector2(515.708, 392.86)
+
+[node name="Ground2" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
+position = Vector2(797, 323)
+
+[node name="Ground3" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
+position = Vector2(234, 323)
+
+[node name="Ground4" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
+position = Vector2(1032, 818)
+
+[node name="Ground5" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
+position = Vector2(1292, 323)
+
+[node name="Ground6" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
+position = Vector2(519, 616)
+
+[node name="Player" parent="." instance=ExtResource("2_g50nx")]
+position = Vector2(218, 238)
+gravity = 450.0
+walk_speed = 250
+stomp_speed = 800
+
+[node name="SetOfSpikes" type="Node2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="Spike" parent="SetOfSpikes" instance=ExtResource("3_qq0c6")]
+position = Vector2(446, 332)
+
+[node name="Spike2" parent="SetOfSpikes" instance=ExtResource("3_qq0c6")]
+position = Vector2(516, 332)
+
+[node name="Spike3" parent="SetOfSpikes" instance=ExtResource("3_qq0c6")]
+position = Vector2(586, 332)
+
+[node name="Stompable" type="Area2D" parent="."]
+script = ExtResource("4_2jst3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stompable"]
+position = Vector2(1044.5, 310.5)
+shape = SubResource("RectangleShape2D_bdq70")
+
+[node name="StoneTile" parent="Stompable" instance=ExtResource("5_ybfnu")]
+position = Vector2(1009, 323)
+
+[node name="StoneTile2" parent="Stompable" instance=ExtResource("5_ybfnu")]
+position = Vector2(1080, 323)
+
+[node name="DirtTile" parent="." instance=ExtResource("6_1drh7")]
+position = Vector2(374, 393)
+
+[node name="DirtTile2" parent="." instance=ExtResource("6_1drh7")]
+position = Vector2(656, 393)
+
+[node name="Crystal" parent="." instance=ExtResource("7_lfrc0")]
+position = Vector2(439, 546)
+
+[connection signal="body_entered" from="Stompable" to="Stompable" method="_on_body_entered"]

@@ -1,14 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://by820vl6ar4st"]
 
-[ext_resource type="Texture2D" uid="uid://cmj3ifvxwfkn0" path="res://assets/stone.png" id="1_77ase"]
+[ext_resource type="Texture2D" uid="uid://d02760qyrrot" path="res://assets/sprites_worldObjects.png" id="1_m8gmd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5b4d"]
 size = Vector2(69.975, 70)
 
-[node name="StoneTile" type="StaticBody2D"]
+[node name="Tile" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_77ase")
+texture_filter = 1
+texture = ExtResource("1_m8gmd")
+region_enabled = true
+region_rect = Rect2(140, 0, 70, 70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

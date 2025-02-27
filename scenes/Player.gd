@@ -4,8 +4,11 @@ extends CharacterBody2D
 @export var walk_speed = 200
 @export var jump_speed = -300
 @export var stomp_speed = 500
+@export var bounce_multiplier = 1.5
 var isStomping = false
 var stompBounce = false
+
+@onready var sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
 	velocity.y += delta * gravity
@@ -18,7 +21,7 @@ func _physics_process(delta):
 			$StompEndTimer.start()
 		if Input.is_action_just_pressed('ui_up'):
 			if stompBounce:
-				velocity.y = jump_speed * 1.5
+				velocity.y = jump_speed * bounce_multiplier
 				stompBounce = false
 				print("Bounce used")
 			else:
@@ -35,10 +38,26 @@ func _physics_process(delta):
 		velocity.x =  walk_speed
 	else:
 		velocity.x = 0
+	
+	determine_sprite()
 
 	# "move_and_slide" already takes delta time into account.
 	move_and_slide()
 
+func determine_sprite():
+	if velocity.x > 0:
+			sprite.flip_h = false
+	elif velocity.x < 0:
+			sprite.flip_h = true
+			
+	if isStomping:
+		sprite.play("Stomp")
+	elif not is_on_floor():
+		sprite.play("Mid-air")
+	elif velocity.x:
+		sprite.play("Walk")
+	else:
+		sprite.play("Idle")
 
 func _on_stomp_end_timer_timeout() -> void:
 	stompBounce = false

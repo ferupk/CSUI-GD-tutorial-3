@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://cexlxvmwycnyg"]
+
+[ext_resource type="Texture2D" uid="uid://d02760qyrrot" path="res://assets/sprites_worldObjects.png" id="1_hrbjj"]
+[ext_resource type="Script" path="res://scenes/Crystal.gd" id="2_26w2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46imx"]
+atlas = ExtResource("1_hrbjj")
+region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylxue"]
+atlas = ExtResource("1_hrbjj")
+region = Rect2(280, 0, 70, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0870s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46imx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylxue")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6kcr"]
+size = Vector2(29, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07xda"]
+size = Vector2(14, 47)
+
+[node name="Crystal" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0870s")
+autoplay = "default"
+frame = 1
+frame_progress = 0.48172
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2.5)
+shape = SubResource("RectangleShape2D_w6kcr")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-2, -4)
+script = ExtResource("2_26w2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_07xda")
+debug_color = Color(0.273731, 0.58977, 0, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
