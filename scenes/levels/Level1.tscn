@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=13 format=3 uid="uid://dsyfep1odrxje"]
 
 [ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/Ground.tscn" id="1_e3h3q"]
 [ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/Player.tscn" id="2_g50nx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://caimdsn57yual" path="res://scenes/DirtTile.tscn" id="6_1drh7"]
 [ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/Crystal.tscn" id="7_lfrc0"]
 [ext_resource type="Script" path="res://scenes/DeathPlane.gd" id="8_8yhqc"]
+[ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="9_3211a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdq70"]
 size = Vector2(141, 95)
@@ -20,6 +21,12 @@ size = Vector2(89.5, 1385.75)
 
 [node name="Root" type="Node2D"]
 position = Vector2(0, -1)
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -255
+offset_right = 1600.0
+offset_bottom = 901.0
+texture = ExtResource("9_3211a")
 
 [node name="LevelGeometry" type="Node2D" parent="."]
 
