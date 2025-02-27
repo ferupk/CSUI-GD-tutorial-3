@@ -1,14 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=7 format=3 uid="uid://dsyfep1odrxje"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Ground.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/Ground.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/Player.tscn" id="2_ljajx"]
+[ext_resource type="PackedScene" uid="uid://bbtcn6kgxwbq1" path="res://scenes/Spike.tscn" id="4_540ny"]
+[ext_resource type="PackedScene" uid="uid://by820vl6ar4st" path="res://scenes/StoneTile.tscn" id="6_a354b"]
+[ext_resource type="Script" path="res://scenes/Stompable.gd" id="6_blvdi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdq70"]
+size = Vector2(141, 95)
 
 [node name="Root" type="Node2D"]
+position = Vector2(0, -1)
 
-[node name="Ground" parent="." instance=ExtResource("1")]
-position = Vector2(507.708, 363.86)
+[node name="LevelGeometry" type="Node2D" parent="."]
+position = Vector2(171, 97)
 
-[node name="Ground2" parent="." instance=ExtResource("1")]
-position = Vector2(789.149, 294.054)
+[node name="Ground" parent="LevelGeometry" instance=ExtResource("1")]
+position = Vector2(345.708, 295.86)
 
-[node name="Ground3" parent="." instance=ExtResource("1")]
-position = Vector2(225.95, 294.562)
+[node name="Ground2" parent="LevelGeometry" instance=ExtResource("1")]
+position = Vector2(627, 226)
+
+[node name="Ground3" parent="LevelGeometry" instance=ExtResource("1")]
+position = Vector2(64, 226)
+
+[node name="Ground4" parent="LevelGeometry" instance=ExtResource("1")]
+position = Vector2(862, 721)
+
+[node name="Ground5" parent="LevelGeometry" instance=ExtResource("1")]
+position = Vector2(1123, 221)
+
+[node name="Ground6" parent="LevelGeometry" instance=ExtResource("1")]
+position = Vector2(349, 519)
+
+[node name="Player" parent="." instance=ExtResource("2_ljajx")]
+position = Vector2(218, 238)
+gravity = 450.0
+walk_speed = 250
+stomp_speed = 800
+
+[node name="SetOfSpikes" type="Node2D" parent="."]
+position = Vector2(171, 106)
+
+[node name="Spike" parent="SetOfSpikes" instance=ExtResource("4_540ny")]
+position = Vector2(275, 226)
+
+[node name="Spike2" parent="SetOfSpikes" instance=ExtResource("4_540ny")]
+position = Vector2(345, 226)
+
+[node name="Spike3" parent="SetOfSpikes" instance=ExtResource("4_540ny")]
+position = Vector2(415, 226)
+
+[node name="Stompable" type="Area2D" parent="."]
+script = ExtResource("6_blvdi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stompable"]
+position = Vector2(1044.5, 310.5)
+shape = SubResource("RectangleShape2D_bdq70")
+
+[node name="StoneTile" parent="Stompable" instance=ExtResource("6_a354b")]
+position = Vector2(1009, 323)
+
+[node name="StoneTile2" parent="Stompable" instance=ExtResource("6_a354b")]
+position = Vector2(1080, 323)
+
+[connection signal="body_entered" from="Stompable" to="Stompable" method="_on_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwqgrfayportb"]
+
+[ext_resource type="PackedScene" uid="uid://ckxspqefk0pw1" path="res://scenes/SnowTile.tscn" id="1_xhuyi"]
+
+[node name="Wall" type="Node2D"]
+
+[node name="Tile" parent="." instance=ExtResource("1_xhuyi")]
+
+[node name="Tile2" parent="." instance=ExtResource("1_xhuyi")]
+position = Vector2(0, 70)
+
+[node name="Tile3" parent="." instance=ExtResource("1_xhuyi")]
+position = Vector2(0, 140)
+
+[node name="Tile4" parent="." instance=ExtResource("1_xhuyi")]
+position = Vector2(0, 210)
