@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://dsyfep1odrxje"]
 
-[ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/Ground.tscn" id="1_e3h3q"]
-[ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/Player.tscn" id="2_g50nx"]
-[ext_resource type="PackedScene" uid="uid://bbtcn6kgxwbq1" path="res://scenes/Spike.tscn" id="3_qq0c6"]
-[ext_resource type="Script" path="res://scenes/Stompable.gd" id="4_2jst3"]
-[ext_resource type="PackedScene" uid="uid://by820vl6ar4st" path="res://scenes/BreakableTile.tscn" id="5_ybfnu"]
-[ext_resource type="PackedScene" uid="uid://caimdsn57yual" path="res://scenes/DirtTile.tscn" id="6_1drh7"]
-[ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/Crystal.tscn" id="7_lfrc0"]
-[ext_resource type="Script" path="res://scenes/DeathPlane.gd" id="8_8yhqc"]
+[ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/objects/Ground.tscn" id="1_e3h3q"]
+[ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="2_g50nx"]
+[ext_resource type="PackedScene" uid="uid://bbtcn6kgxwbq1" path="res://scenes/objects/Spike.tscn" id="3_qq0c6"]
+[ext_resource type="Script" path="res://scenes/scripts/Stompable.gd" id="4_2jst3"]
+[ext_resource type="PackedScene" uid="uid://by820vl6ar4st" path="res://scenes/objects/tiles/BreakableTile.tscn" id="5_ybfnu"]
+[ext_resource type="PackedScene" uid="uid://caimdsn57yual" path="res://scenes/objects/tiles/DirtTile.tscn" id="6_1drh7"]
+[ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/objects/Crystal.tscn" id="7_lfrc0"]
+[ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="8_8yhqc"]
 [ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="9_3211a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdq70"]
@@ -48,12 +48,6 @@ position = Vector2(1292, 323)
 [node name="Ground6" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
 position = Vector2(519, 616)
 
-[node name="Player" parent="." instance=ExtResource("2_g50nx")]
-position = Vector2(218, 238)
-gravity = 450.0
-walk_speed = 250
-stomp_speed = 800
-
 [node name="SetOfSpikes" type="Node2D" parent="."]
 position = Vector2(0, -2)
 
@@ -87,6 +81,12 @@ position = Vector2(656, 393)
 
 [node name="Crystal" parent="." instance=ExtResource("7_lfrc0")]
 position = Vector2(439, 546)
+
+[node name="Player" parent="." instance=ExtResource("2_g50nx")]
+position = Vector2(218, 238)
+gravity = 450.0
+walk_speed = 250
+stomp_speed = 800
 
 [node name="DeathPlane" type="Area2D" parent="."]
 script = ExtResource("8_8yhqc")
