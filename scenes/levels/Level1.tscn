@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=12 format=3 uid="uid://dsyfep1odrxje"]
 
 [ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/Ground.tscn" id="1_e3h3q"]
 [ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/Player.tscn" id="2_g50nx"]
@@ -7,9 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://by820vl6ar4st" path="res://scenes/BreakableTile.tscn" id="5_ybfnu"]
 [ext_resource type="PackedScene" uid="uid://caimdsn57yual" path="res://scenes/DirtTile.tscn" id="6_1drh7"]
 [ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/Crystal.tscn" id="7_lfrc0"]
+[ext_resource type="Script" path="res://scenes/DeathPlane.gd" id="8_8yhqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdq70"]
 size = Vector2(141, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0pu3"]
+size = Vector2(1787.31, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76whr"]
+size = Vector2(89.5, 1385.75)
 
 [node name="Root" type="Node2D"]
 position = Vector2(0, -1)
@@ -74,4 +81,28 @@ position = Vector2(656, 393)
 [node name="Crystal" parent="." instance=ExtResource("7_lfrc0")]
 position = Vector2(439, 546)
 
+[node name="DeathPlane" type="Area2D" parent="."]
+script = ExtResource("8_8yhqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(809, -210)
+shape = SubResource("RectangleShape2D_h0pu3")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(806.344, 1100)
+shape = SubResource("RectangleShape2D_h0pu3")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(-131, 445)
+shape = SubResource("RectangleShape2D_76whr")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(1747, 444.875)
+shape = SubResource("RectangleShape2D_76whr")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
 [connection signal="body_entered" from="Stompable" to="Stompable" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
