@@ -38,7 +38,7 @@ scale = Vector2(5, 1)
 
 [node name="Crystal" parent="LevelGeometry2" instance=ExtResource("4_g332h")]
 position = Vector2(1187, 313)
-targetLevel = 7
+target_level = 7
 
 [node name="Ground2" parent="LevelGeometry2" instance=ExtResource("2_tm5j2")]
 position = Vector2(1066, 383)

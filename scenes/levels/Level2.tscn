@@ -44,7 +44,7 @@ scale = Vector2(5, 1)
 
 [node name="Crystal" parent="LevelGeometry" instance=ExtResource("7_nbarn")]
 position = Vector2(1190, 523)
-targetLevel = 3
+target_level = 3
 
 [node name="FireTrail" type="Node2D" parent="."]
 position = Vector2(1, 0)

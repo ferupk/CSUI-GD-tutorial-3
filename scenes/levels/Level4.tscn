@@ -95,7 +95,7 @@ scale = Vector2(5, -1)
 
 [node name="Crystal" parent="LevelGeometry2" instance=ExtResource("8_blw1t")]
 position = Vector2(1300, 591)
-targetLevel = 5
+target_level = 5
 
 [node name="Player" parent="." instance=ExtResource("4_bkgef")]
 position = Vector2(361, 365)

@@ -112,7 +112,7 @@ position = Vector2(-13, 556)
 
 [node name="Crystal" parent="." instance=ExtResource("3_6148e")]
 position = Vector2(77, 486)
-targetLevel = 8
+target_level = 8
 
 [node name="Player" parent="." instance=ExtResource("4_jq0co")]
 position = Vector2(1421, 681)

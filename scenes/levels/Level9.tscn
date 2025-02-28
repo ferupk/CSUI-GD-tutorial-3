@@ -37,7 +37,7 @@ position = Vector2(1330, 233)
 
 [node name="Crystal" parent="LevelGeometry" instance=ExtResource("3_2rk8w")]
 position = Vector2(1445, 163)
-targetLevel = 10
+target_level = 10
 
 [node name="Stompable" type="Area2D" parent="LevelGeometry"]
 position = Vector2(749, 206)

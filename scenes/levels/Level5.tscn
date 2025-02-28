@@ -167,7 +167,7 @@ debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
 
 [node name="Crystal" parent="." instance=ExtResource("8_ifqty")]
 position = Vector2(563, 824)
-targetLevel = 6
+target_level = 6
 
 [node name="Ground3" parent="." instance=ExtResource("2_1ti4t")]
 position = Vector2(565, 894)

@@ -77,7 +77,7 @@ position = Vector2(1206, 383)
 
 [node name="Crystal" parent="LevelGeometry2" instance=ExtResource("7_s6qr1")]
 position = Vector2(1210, 313)
-targetLevel = 9
+target_level = 9
 
 [node name="FireTrail" type="Node2D" parent="."]
 position = Vector2(-46, 0)
