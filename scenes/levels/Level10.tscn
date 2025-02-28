@@ -254,6 +254,15 @@ position = Vector2(762, 451)
 [node name="Ground4" parent="LevelGeometry3" instance=ExtResource("2_elwoh")]
 position = Vector2(1591, 241)
 
+[node name="LevelCounter" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 821.0
+offset_right = 238.0
+offset_bottom = 894.0
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf][b] Level 10"
+
 [connection signal="body_entered" from="LevelGeometry2/Stompable2" to="LevelGeometry2/Stompable2" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
 [connection signal="body_entered" from="LevelGeometry3/Stompable" to="LevelGeometry3/Stompable" method="_on_body_entered"]

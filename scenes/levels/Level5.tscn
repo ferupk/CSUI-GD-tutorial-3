@@ -172,6 +172,15 @@ targetLevel = 6
 [node name="Ground3" parent="." instance=ExtResource("2_1ti4t")]
 position = Vector2(565, 894)
 
+[node name="LevelCounter" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 821.0
+offset_right = 238.0
+offset_bottom = 894.0
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf][b] Level 5"
+
 [connection signal="body_entered" from="LevelGeometry/Stompable" to="LevelGeometry/Stompable" method="_on_body_entered"]
 [connection signal="body_entered" from="LevelGeometry2/Stompable" to="LevelGeometry2/Stompable" method="_on_body_entered"]
 [connection signal="body_entered" from="LevelGeometry3/Stompable" to="LevelGeometry3/Stompable" method="_on_body_entered"]

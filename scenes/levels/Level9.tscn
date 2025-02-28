@@ -113,6 +113,15 @@ position = Vector2(1747, 444.875)
 shape = SubResource("RectangleShape2D_l6p6p")
 debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
 
+[node name="LevelCounter" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 821.0
+offset_right = 238.0
+offset_bottom = 894.0
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf][b] Level 9"
+
 [connection signal="body_entered" from="LevelGeometry/Stompable" to="LevelGeometry/Stompable" method="_on_body_entered"]
 [connection signal="body_entered" from="LevelGeometry/Stompable2" to="LevelGeometry/Stompable2" method="_on_body_entered"]
 [connection signal="body_entered" from="LevelGeometry/Stompable3" to="LevelGeometry/Stompable3" method="_on_body_entered"]

@@ -126,5 +126,32 @@ position = Vector2(1747, 444.875)
 shape = SubResource("RectangleShape2D_n25jg")
 debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
 
+[node name="LevelCounter" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 821.0
+offset_right = 238.0
+offset_bottom = 894.0
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf][b] Level 4"
+
+[node name="HelpText" type="RichTextLabel" parent="."]
+offset_left = 109.0
+offset_top = 131.0
+offset_right = 660.0
+offset_bottom = 217.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf]While in mid-air, perform a stomp with the Down arrow."
+
+[node name="HelpText2" type="RichTextLabel" parent="."]
+offset_left = 994.0
+offset_top = 757.0
+offset_right = 1474.0
+offset_bottom = 843.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf]Those blocks look breakable with a stomp. Try it!"
+
 [connection signal="body_entered" from="LevelGeometry/Stompable" to="LevelGeometry/Stompable" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]

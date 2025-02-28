@@ -62,4 +62,24 @@ position = Vector2(1747, 444.875)
 shape = SubResource("RectangleShape2D_072a5")
 debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
 
+[node name="LevelCounter" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 821.0
+offset_right = 238.0
+offset_bottom = 894.0
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf][b] Level 1"
+
+[node name="HelpText" type="RichTextLabel" parent="."]
+offset_left = 486.0
+offset_top = 259.0
+offset_right = 1102.0
+offset_bottom = 384.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf]Help get The Individual to the crystal!
+
+Use the arrow keys to move around."
+
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
