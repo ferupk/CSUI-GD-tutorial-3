@@ -18,7 +18,7 @@ Karakter digerakkan dengan menekan Arrow Keys pada keyboard. Karakter dapat berj
 
 Berikut merupakan cuplikan script yang relevan dengan pergerakan dasar:
 
-```py
+```
 # Player.gd
 @export var gravity = 200.0
 @export var walk_speed = 200
@@ -57,7 +57,7 @@ Selain untuk jatuh dengan cepat, Air Stomp dapat digunakan untuk menghancurkan t
 
 Berikut merupakan cuplikan script yang relevan dengan Air Stomp dan tile Breakable:
 
-```py
+```
 # Player.gd
 @export var stomp_speed = 500
 var is_stomping = false
@@ -77,7 +77,7 @@ func _physics_process(delta):
 	move_and_slide()
 ```
 
-```py
+```
 # Stompable.gd
 func _on_body_entered(body: Node2D):
 	if body.name == "Player" and (body.is_stomping):
@@ -98,7 +98,7 @@ Implementasi ***input window*** dilakukan dengan node Timer bawaan Godot. Saat A
 
 Berikut merupakan cuplikan script yang relevan dengan Stomp Bounce:
 
-```py
+```
 # Player.gd
 extends CharacterBody2D
 
@@ -138,7 +138,7 @@ func _on_stomp_end_timer_timeout() -> void:
 	stomp_bounce = false
 ```
 
-```py
+```
 # Stompable.gd
 func _on_body_entered(body: Node2D):
 	if body.name == "Player" and (body.is_stomping or body.stomp_bounce):
@@ -165,7 +165,7 @@ Implementasi animasi sprite dilakukan dengan node AnimatedSprite2D bawaan Godot.
 
 Berikut merupakan cuplikan script yang relevan dengan mengendalikan animasi karakter pemain:
 
-```py
+```
 # Player.gd
 @onready var sprite = $AnimatedSprite2D
 
