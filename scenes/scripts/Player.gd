@@ -13,19 +13,33 @@ var stompBounce = false
 func _physics_process(delta):
 	velocity.y += delta * gravity
 	
-	if is_on_floor(): 
-		if isStomping:
-			print("Stomp end, bounce window open")
-			isStomping = false
-			stompBounce = true
-			$StompEndTimer.start()
-		if Input.is_action_just_pressed('ui_up'):
-			if stompBounce:
-				velocity.y = jump_speed * bounce_multiplier
-				stompBounce = false
-				print("Bounce used")
-			else:
-				velocity.y = jump_speed
+	#if is_on_floor(): 
+		#if isStomping:
+			#print("Stomp end, bounce window open")
+			#isStomping = false
+			#stompBounce = true
+			#$StompEndTimer.start()
+		#if Input.is_action_just_pressed('ui_up'):
+			#if stompBounce:
+				#velocity.y = jump_speed * bounce_multiplier
+				#stompBounce = false
+				#print("Bounce used")
+			#else:
+				#velocity.y = jump_speed
+	
+	if is_on_floor() and isStomping:
+		print("Stomp end, bounce window open")
+		isStomping = false
+		stompBounce = true
+		$StompEndTimer.start()
+		
+	if Input.is_action_just_pressed('ui_up'):
+		if stompBounce:
+			velocity.y = jump_speed * bounce_multiplier
+			stompBounce = false
+			print("Bounce used")
+		elif is_on_floor():
+			velocity.y = jump_speed
 	
 	if not is_on_floor() and Input.is_action_just_pressed('ui_down'):
 		print("Stomp start")

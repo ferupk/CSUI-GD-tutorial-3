@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyqurehgkvawn"]
+
+[ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="1_kakdx"]
+[ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/objects/Ground.tscn" id="2_6x3cw"]
+[ext_resource type="PackedScene" uid="uid://caimdsn57yual" path="res://scenes/objects/tiles/DirtTile.tscn" id="3_exrtb"]
+[ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/objects/Crystal.tscn" id="4_kn3to"]
+[ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="5_q2kw5"]
+[ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="6_1rf5x"]
+[ext_resource type="PackedScene" uid="uid://bbtcn6kgxwbq1" path="res://scenes/objects/Fire.tscn" id="7_e2ew8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfnjl"]
+size = Vector2(1787.31, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re8a7"]
+size = Vector2(89.5, 1385.75)
+
+[node name="Level3" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -255
+offset_right = 1600.0
+offset_bottom = 901.0
+texture = ExtResource("1_kakdx")
+
+[node name="LevelGeometry" type="Node2D" parent="."]
+
+[node name="Ground" parent="LevelGeometry" instance=ExtResource("2_6x3cw")]
+position = Vector2(402, 328)
+
+[node name="Ground2" parent="LevelGeometry" instance=ExtResource("2_6x3cw")]
+position = Vector2(752, 328)
+
+[node name="DirtTile2" parent="LevelGeometry" instance=ExtResource("3_exrtb")]
+position = Vector2(752, 398)
+scale = Vector2(5, 1)
+
+[node name="DirtTile" parent="LevelGeometry" instance=ExtResource("3_exrtb")]
+position = Vector2(402, 398)
+scale = Vector2(5, 1)
+
+[node name="Fire" parent="LevelGeometry" instance=ExtResource("7_e2ew8")]
+position = Vector2(542, 265)
+
+[node name="Fire2" parent="LevelGeometry" instance=ExtResource("7_e2ew8")]
+position = Vector2(612, 265)
+
+[node name="LevelGeometry2" type="Node2D" parent="."]
+
+[node name="Fire3" parent="LevelGeometry2" instance=ExtResource("7_e2ew8")]
+position = Vector2(409, 652)
+
+[node name="Fire4" parent="LevelGeometry2" instance=ExtResource("7_e2ew8")]
+position = Vector2(1249, 651)
+
+[node name="Ground3" parent="LevelGeometry2" instance=ExtResource("2_6x3cw")]
+position = Vector2(1109, 714)
+
+[node name="Ground4" parent="LevelGeometry2" instance=ExtResource("2_6x3cw")]
+position = Vector2(549, 715)
+
+[node name="Crystal" parent="LevelGeometry2" instance=ExtResource("4_kn3to")]
+position = Vector2(490, 645)
+targetLevel = 4
+
+[node name="Player" parent="." instance=ExtResource("5_q2kw5")]
+position = Vector2(272, 242)
+gravity = 450.0
+walk_speed = 250
+stomp_speed = 800
+
+[node name="DeathPlane" type="Area2D" parent="."]
+script = ExtResource("6_1rf5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(809, -210)
+shape = SubResource("RectangleShape2D_qfnjl")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(806.344, 1100)
+shape = SubResource("RectangleShape2D_qfnjl")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(-131, 445)
+shape = SubResource("RectangleShape2D_re8a7")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(1747, 444.875)
+shape = SubResource("RectangleShape2D_re8a7")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]

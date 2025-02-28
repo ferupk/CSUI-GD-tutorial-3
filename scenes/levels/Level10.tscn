@@ -1,0 +1,261 @@
+[gd_scene load_steps=14 format=3 uid="uid://bd1amdrqrjqtk"]
+
+[ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="1_yx05i"]
+[ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/objects/Ground.tscn" id="2_elwoh"]
+[ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/objects/Crystal.tscn" id="3_6xb21"]
+[ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="4_tgbov"]
+[ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="5_usulo"]
+[ext_resource type="PackedScene" uid="uid://caimdsn57yual" path="res://scenes/objects/tiles/DirtTile.tscn" id="6_33a62"]
+[ext_resource type="PackedScene" uid="uid://ckxspqefk0pw1" path="res://scenes/objects/tiles/GrassTile.tscn" id="7_6fy8u"]
+[ext_resource type="PackedScene" uid="uid://bbtcn6kgxwbq1" path="res://scenes/objects/Fire.tscn" id="8_mg6fu"]
+[ext_resource type="Script" path="res://scenes/scripts/Stompable.gd" id="9_spf0g"]
+[ext_resource type="PackedScene" uid="uid://by820vl6ar4st" path="res://scenes/objects/tiles/BreakableTile.tscn" id="10_75jjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i231a"]
+size = Vector2(73, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tdis"]
+size = Vector2(1787.31, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyj6r"]
+size = Vector2(89.5, 1385.75)
+
+[node name="Level10" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -255
+offset_left = -5.0
+offset_right = 1595.0
+offset_bottom = 901.0
+texture = ExtResource("1_yx05i")
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelGeometry" type="Node2D" parent="."]
+position = Vector2(-525, 133)
+
+[node name="Ground4" parent="LevelGeometry" instance=ExtResource("2_elwoh")]
+position = Vector2(442, -67)
+
+[node name="DirtTile" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 493)
+scale = Vector2(5, 1)
+
+[node name="DirtTile2" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 563)
+scale = Vector2(5, 1)
+
+[node name="DirtTile3" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 633)
+scale = Vector2(5, 1)
+
+[node name="DirtTile4" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 423)
+scale = Vector2(5, 1)
+
+[node name="DirtTile5" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 213)
+scale = Vector2(5, 1)
+
+[node name="DirtTile6" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 283)
+scale = Vector2(5, 1)
+
+[node name="DirtTile7" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 353)
+scale = Vector2(5, 1)
+
+[node name="DirtTile8" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 143)
+scale = Vector2(5, 1)
+
+[node name="DirtTile9" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 73)
+scale = Vector2(5, 1)
+
+[node name="DirtTile10" parent="LevelGeometry" instance=ExtResource("6_33a62")]
+position = Vector2(442, 3)
+scale = Vector2(5, 1)
+
+[node name="Ground6" parent="LevelGeometry" instance=ExtResource("2_elwoh")]
+position = Vector2(792, 633)
+
+[node name="GrassTile2" parent="LevelGeometry" instance=ExtResource("7_6fy8u")]
+position = Vector2(652, 213)
+
+[node name="LevelGeometry2" type="Node2D" parent="."]
+position = Vector2(105, 133)
+
+[node name="Ground4" parent="LevelGeometry2" instance=ExtResource("2_elwoh")]
+position = Vector2(442, 143)
+
+[node name="DirtTile" parent="LevelGeometry2" instance=ExtResource("6_33a62")]
+position = Vector2(442, 493)
+scale = Vector2(5, 1)
+
+[node name="DirtTile2" parent="LevelGeometry2" instance=ExtResource("6_33a62")]
+position = Vector2(442, 563)
+scale = Vector2(5, 1)
+
+[node name="DirtTile3" parent="LevelGeometry2" instance=ExtResource("6_33a62")]
+position = Vector2(442, 633)
+scale = Vector2(5, 1)
+
+[node name="DirtTile4" parent="LevelGeometry2" instance=ExtResource("6_33a62")]
+position = Vector2(442, 423)
+scale = Vector2(5, 1)
+
+[node name="DirtTile5" parent="LevelGeometry2" instance=ExtResource("6_33a62")]
+position = Vector2(442, 213)
+scale = Vector2(5, 1)
+
+[node name="DirtTile6" parent="LevelGeometry2" instance=ExtResource("6_33a62")]
+position = Vector2(442, 283)
+scale = Vector2(5, 1)
+
+[node name="DirtTile7" parent="LevelGeometry2" instance=ExtResource("6_33a62")]
+position = Vector2(442, 353)
+scale = Vector2(5, 1)
+
+[node name="GrassTile" parent="LevelGeometry2" instance=ExtResource("7_6fy8u")]
+position = Vector2(232, 423)
+
+[node name="Fire" parent="LevelGeometry2" instance=ExtResource("8_mg6fu")]
+position = Vector2(582, 80)
+
+[node name="Fire2" parent="LevelGeometry2" instance=ExtResource("8_mg6fu")]
+position = Vector2(512, 80)
+
+[node name="Ground" parent="LevelGeometry2" instance=ExtResource("2_elwoh")]
+position = Vector2(792, 633)
+
+[node name="Stompable2" type="Area2D" parent="LevelGeometry2"]
+position = Vector2(310, 182)
+script = ExtResource("9_spf0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry2/Stompable2"]
+position = Vector2(726.5, 447)
+shape = SubResource("RectangleShape2D_i231a")
+debug_color = Color(0.683115, 0.489662, 0.312734, 0.42)
+
+[node name="Tile" parent="LevelGeometry2/Stompable2" instance=ExtResource("10_75jjl")]
+position = Vector2(692, 451)
+
+[node name="Tile2" parent="LevelGeometry2/Stompable2" instance=ExtResource("10_75jjl")]
+position = Vector2(762, 451)
+
+[node name="Crystal" parent="." instance=ExtResource("3_6xb21")]
+position = Vector2(1536, 136)
+
+[node name="Player" parent="." instance=ExtResource("4_tgbov")]
+position = Vector2(158, 676)
+gravity = 450.0
+walk_speed = 250
+stomp_speed = 800
+
+[node name="DeathPlane" type="Area2D" parent="."]
+script = ExtResource("5_usulo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(809, -210)
+shape = SubResource("RectangleShape2D_6tdis")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(806.344, 1100)
+shape = SubResource("RectangleShape2D_6tdis")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(-131, 445)
+shape = SubResource("RectangleShape2D_xyj6r")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(1747, 444.875)
+shape = SubResource("RectangleShape2D_xyj6r")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="LevelGeometry3" type="Node2D" parent="."]
+position = Vector2(65, -35)
+
+[node name="DirtTile" parent="LevelGeometry3" instance=ExtResource("6_33a62")]
+position = Vector2(972, 311)
+scale = Vector2(5, -1)
+
+[node name="DirtTile2" parent="LevelGeometry3" instance=ExtResource("6_33a62")]
+position = Vector2(972, 381)
+scale = Vector2(5, -1)
+
+[node name="Ground" parent="LevelGeometry3" instance=ExtResource("2_elwoh")]
+position = Vector2(972, 451)
+scale = Vector2(1, -1)
+
+[node name="DirtTile3" parent="LevelGeometry3" instance=ExtResource("6_33a62")]
+position = Vector2(972, 241)
+scale = Vector2(5, -1)
+
+[node name="DirtTile4" parent="LevelGeometry3" instance=ExtResource("6_33a62")]
+position = Vector2(972, 171)
+scale = Vector2(5, -1)
+
+[node name="DirtTile5" parent="LevelGeometry3" instance=ExtResource("6_33a62")]
+position = Vector2(972, 101)
+scale = Vector2(5, -1)
+
+[node name="DirtTile6" parent="LevelGeometry3" instance=ExtResource("6_33a62")]
+position = Vector2(972, 31)
+scale = Vector2(5, -1)
+
+[node name="Stompable" type="Area2D" parent="LevelGeometry3"]
+position = Vector2(0, -140)
+script = ExtResource("9_spf0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry3/Stompable"]
+position = Vector2(726.5, 447)
+shape = SubResource("RectangleShape2D_i231a")
+debug_color = Color(0.683115, 0.489662, 0.312734, 0.42)
+
+[node name="Tile" parent="LevelGeometry3/Stompable" instance=ExtResource("10_75jjl")]
+position = Vector2(692, 451)
+
+[node name="Tile2" parent="LevelGeometry3/Stompable" instance=ExtResource("10_75jjl")]
+position = Vector2(762, 451)
+
+[node name="Stompable3" type="Area2D" parent="LevelGeometry3"]
+position = Vector2(688, 153)
+script = ExtResource("9_spf0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry3/Stompable3"]
+position = Vector2(726.5, 447)
+shape = SubResource("RectangleShape2D_i231a")
+debug_color = Color(0.683115, 0.489662, 0.312734, 0.42)
+
+[node name="Tile" parent="LevelGeometry3/Stompable3" instance=ExtResource("10_75jjl")]
+position = Vector2(692, 451)
+
+[node name="Tile2" parent="LevelGeometry3/Stompable3" instance=ExtResource("10_75jjl")]
+position = Vector2(762, 451)
+
+[node name="Stompable4" type="Area2D" parent="LevelGeometry3"]
+position = Vector2(490, -70)
+script = ExtResource("9_spf0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry3/Stompable4"]
+position = Vector2(726.5, 447)
+shape = SubResource("RectangleShape2D_i231a")
+debug_color = Color(0.683115, 0.489662, 0.312734, 0.42)
+
+[node name="Tile" parent="LevelGeometry3/Stompable4" instance=ExtResource("10_75jjl")]
+position = Vector2(692, 451)
+
+[node name="Tile2" parent="LevelGeometry3/Stompable4" instance=ExtResource("10_75jjl")]
+position = Vector2(762, 451)
+
+[node name="Ground4" parent="LevelGeometry3" instance=ExtResource("2_elwoh")]
+position = Vector2(1591, 241)
+
+[connection signal="body_entered" from="LevelGeometry2/Stompable2" to="LevelGeometry2/Stompable2" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelGeometry3/Stompable" to="LevelGeometry3/Stompable" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelGeometry3/Stompable3" to="LevelGeometry3/Stompable3" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelGeometry3/Stompable4" to="LevelGeometry3/Stompable4" method="_on_body_entered"]

@@ -1,89 +1,40 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=8 format=3 uid="uid://dhxnuopu4qxbr"]
 
 [ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/objects/Ground.tscn" id="1_e3h3q"]
 [ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="2_g50nx"]
-[ext_resource type="PackedScene" uid="uid://bbtcn6kgxwbq1" path="res://scenes/objects/Spike.tscn" id="3_qq0c6"]
-[ext_resource type="Script" path="res://scenes/scripts/Stompable.gd" id="4_2jst3"]
-[ext_resource type="PackedScene" uid="uid://by820vl6ar4st" path="res://scenes/objects/tiles/BreakableTile.tscn" id="5_ybfnu"]
-[ext_resource type="PackedScene" uid="uid://caimdsn57yual" path="res://scenes/objects/tiles/DirtTile.tscn" id="6_1drh7"]
 [ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/objects/Crystal.tscn" id="7_lfrc0"]
 [ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="8_8yhqc"]
 [ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="9_3211a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdq70"]
-size = Vector2(141, 95)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0pu3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juaoh"]
 size = Vector2(1787.31, 76)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_76whr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_072a5"]
 size = Vector2(89.5, 1385.75)
 
-[node name="Root" type="Node2D"]
-position = Vector2(0, -1)
+[node name="Level1" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -255
 offset_right = 1600.0
 offset_bottom = 901.0
 texture = ExtResource("9_3211a")
+metadata/_edit_use_anchors_ = true
 
 [node name="LevelGeometry" type="Node2D" parent="."]
 
-[node name="Ground" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
-position = Vector2(515.708, 392.86)
-
-[node name="Ground2" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
-position = Vector2(797, 323)
-
 [node name="Ground3" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
-position = Vector2(234, 323)
+position = Vector2(594, 604)
 
 [node name="Ground4" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
-position = Vector2(1032, 818)
-
-[node name="Ground5" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
-position = Vector2(1292, 323)
-
-[node name="Ground6" parent="LevelGeometry" instance=ExtResource("1_e3h3q")]
-position = Vector2(519, 616)
-
-[node name="SetOfSpikes" type="Node2D" parent="."]
-position = Vector2(0, -2)
-
-[node name="Spike" parent="SetOfSpikes" instance=ExtResource("3_qq0c6")]
-position = Vector2(446, 332)
-
-[node name="Spike2" parent="SetOfSpikes" instance=ExtResource("3_qq0c6")]
-position = Vector2(516, 332)
-
-[node name="Spike3" parent="SetOfSpikes" instance=ExtResource("3_qq0c6")]
-position = Vector2(586, 332)
-
-[node name="Stompable" type="Area2D" parent="."]
-script = ExtResource("4_2jst3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stompable"]
-position = Vector2(1044.5, 310.5)
-shape = SubResource("RectangleShape2D_bdq70")
-
-[node name="StoneTile" parent="Stompable" instance=ExtResource("5_ybfnu")]
-position = Vector2(1009, 323)
-
-[node name="StoneTile2" parent="Stompable" instance=ExtResource("5_ybfnu")]
-position = Vector2(1080, 323)
-
-[node name="DirtTile" parent="." instance=ExtResource("6_1drh7")]
-position = Vector2(374, 393)
-
-[node name="DirtTile2" parent="." instance=ExtResource("6_1drh7")]
-position = Vector2(656, 393)
+position = Vector2(944, 604)
 
 [node name="Crystal" parent="." instance=ExtResource("7_lfrc0")]
-position = Vector2(439, 546)
+position = Vector2(1055, 534)
+targetLevel = 2
 
 [node name="Player" parent="." instance=ExtResource("2_g50nx")]
-position = Vector2(218, 238)
+position = Vector2(492, 518)
 gravity = 450.0
 walk_speed = 250
 stomp_speed = 800
@@ -93,23 +44,22 @@ script = ExtResource("8_8yhqc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
 position = Vector2(809, -210)
-shape = SubResource("RectangleShape2D_h0pu3")
+shape = SubResource("RectangleShape2D_juaoh")
 debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathPlane"]
 position = Vector2(806.344, 1100)
-shape = SubResource("RectangleShape2D_h0pu3")
+shape = SubResource("RectangleShape2D_juaoh")
 debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathPlane"]
 position = Vector2(-131, 445)
-shape = SubResource("RectangleShape2D_76whr")
+shape = SubResource("RectangleShape2D_072a5")
 debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathPlane"]
 position = Vector2(1747, 444.875)
-shape = SubResource("RectangleShape2D_76whr")
+shape = SubResource("RectangleShape2D_072a5")
 debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
 
-[connection signal="body_entered" from="Stompable" to="Stompable" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]

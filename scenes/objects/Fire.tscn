@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bbtcn6kgxwbq1"]
 
 [ext_resource type="Texture2D" uid="uid://d02760qyrrot" path="res://assets/sprites_worldObjects.png" id="1_pwvwq"]
-[ext_resource type="Script" path="res://scenes/scripts/SpikeHitbox.gd" id="2_jly5n"]
+[ext_resource type="Script" path="res://scenes/scripts/FireHitbox.gd" id="2_jly5n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5a6e"]
 atlas = ExtResource("1_pwvwq")
@@ -38,7 +38,7 @@ size = Vector2(24, 63)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwuif"]
 size = Vector2(24, 63.3333)
 
-[node name="Spike" type="StaticBody2D"]
+[node name="Fire" type="StaticBody2D"]
 scale = Vector2(1, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

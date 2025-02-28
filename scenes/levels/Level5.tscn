@@ -1,0 +1,179 @@
+[gd_scene load_steps=12 format=3 uid="uid://4mxaavgtkede"]
+
+[ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="1_i2763"]
+[ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/objects/Ground.tscn" id="2_1ti4t"]
+[ext_resource type="Script" path="res://scenes/scripts/Stompable.gd" id="3_j6wn3"]
+[ext_resource type="PackedScene" uid="uid://by820vl6ar4st" path="res://scenes/objects/tiles/BreakableTile.tscn" id="4_1e7rc"]
+[ext_resource type="PackedScene" uid="uid://bbtcn6kgxwbq1" path="res://scenes/objects/Fire.tscn" id="5_n1m7l"]
+[ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="6_yl81b"]
+[ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="7_5503c"]
+[ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/objects/Crystal.tscn" id="8_ifqty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8213"]
+size = Vector2(73, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48f3t"]
+size = Vector2(1787.31, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymjri"]
+size = Vector2(89.5, 1385.75)
+
+[node name="Level5" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -255
+offset_right = 1600.0
+offset_bottom = 901.0
+texture = ExtResource("1_i2763")
+
+[node name="LevelGeometry" type="Node2D" parent="."]
+position = Vector2(-11, -114)
+
+[node name="Ground" parent="LevelGeometry" instance=ExtResource("2_1ti4t")]
+position = Vector2(402, 328)
+
+[node name="Ground2" parent="LevelGeometry" instance=ExtResource("2_1ti4t")]
+position = Vector2(752, 328)
+
+[node name="Stompable" type="Area2D" parent="LevelGeometry"]
+script = ExtResource("3_j6wn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry/Stompable"]
+position = Vector2(996.5, 324)
+shape = SubResource("RectangleShape2D_j8213")
+debug_color = Color(0.683115, 0.489662, 0.312734, 0.42)
+
+[node name="Tile" parent="LevelGeometry/Stompable" instance=ExtResource("4_1e7rc")]
+position = Vector2(962, 328)
+
+[node name="Tile2" parent="LevelGeometry/Stompable" instance=ExtResource("4_1e7rc")]
+position = Vector2(1032, 328)
+
+[node name="Ground3" parent="LevelGeometry" instance=ExtResource("2_1ti4t")]
+position = Vector2(1242, 328)
+
+[node name="Fire" parent="LevelGeometry" instance=ExtResource("5_n1m7l")]
+position = Vector2(1382, 265)
+
+[node name="LevelGeometry2" type="Node2D" parent="."]
+position = Vector2(-11, -137)
+
+[node name="Fire" parent="LevelGeometry2" instance=ExtResource("5_n1m7l")]
+position = Vector2(262, 527)
+
+[node name="Ground" parent="LevelGeometry2" instance=ExtResource("2_1ti4t")]
+position = Vector2(402, 590)
+
+[node name="Ground2" parent="LevelGeometry2" instance=ExtResource("2_1ti4t")]
+position = Vector2(892, 590)
+
+[node name="Stompable" type="Area2D" parent="LevelGeometry2"]
+position = Vector2(0, 262)
+script = ExtResource("3_j6wn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry2/Stompable"]
+position = Vector2(646.5, 324)
+shape = SubResource("RectangleShape2D_j8213")
+debug_color = Color(0.683115, 0.489662, 0.312734, 0.42)
+
+[node name="Tile" parent="LevelGeometry2/Stompable" instance=ExtResource("4_1e7rc")]
+position = Vector2(612, 328)
+
+[node name="Tile2" parent="LevelGeometry2/Stompable" instance=ExtResource("4_1e7rc")]
+position = Vector2(682, 328)
+
+[node name="Ground3" parent="LevelGeometry2" instance=ExtResource("2_1ti4t")]
+position = Vector2(1242, 590)
+
+[node name="Fire2" parent="LevelGeometry2" instance=ExtResource("5_n1m7l")]
+position = Vector2(1382, 527)
+
+[node name="LevelGeometry3" type="Node2D" parent="."]
+position = Vector2(-11, 128)
+
+[node name="Ground" parent="LevelGeometry3" instance=ExtResource("2_1ti4t")]
+position = Vector2(331, 589)
+
+[node name="Ground2" parent="LevelGeometry3" instance=ExtResource("2_1ti4t")]
+position = Vector2(821, 589)
+
+[node name="Stompable" type="Area2D" parent="LevelGeometry3"]
+position = Vector2(-71, 261)
+script = ExtResource("3_j6wn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry3/Stompable"]
+position = Vector2(646.5, 324)
+shape = SubResource("RectangleShape2D_j8213")
+debug_color = Color(0.683115, 0.489662, 0.312734, 0.42)
+
+[node name="Tile" parent="LevelGeometry3/Stompable" instance=ExtResource("4_1e7rc")]
+position = Vector2(612, 328)
+
+[node name="Tile2" parent="LevelGeometry3/Stompable" instance=ExtResource("4_1e7rc")]
+position = Vector2(682, 328)
+
+[node name="Ground3" parent="LevelGeometry3" instance=ExtResource("2_1ti4t")]
+position = Vector2(1311, 589)
+
+[node name="Fire2" parent="LevelGeometry3" instance=ExtResource("5_n1m7l")]
+position = Vector2(1451, 526)
+
+[node name="Stompable2" type="Area2D" parent="LevelGeometry3"]
+position = Vector2(-71, 261)
+script = ExtResource("3_j6wn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry3/Stompable2"]
+position = Vector2(1136.5, 324)
+shape = SubResource("RectangleShape2D_j8213")
+debug_color = Color(0.683115, 0.489662, 0.312734, 0.42)
+
+[node name="Tile" parent="LevelGeometry3/Stompable2" instance=ExtResource("4_1e7rc")]
+position = Vector2(1102, 328)
+
+[node name="Tile2" parent="LevelGeometry3/Stompable2" instance=ExtResource("4_1e7rc")]
+position = Vector2(1172, 328)
+
+[node name="Fire3" parent="LevelGeometry3" instance=ExtResource("5_n1m7l")]
+position = Vector2(191, 526)
+
+[node name="Player" parent="." instance=ExtResource("6_yl81b")]
+position = Vector2(263, 119)
+gravity = 450.0
+walk_speed = 250
+stomp_speed = 800
+
+[node name="DeathPlane" type="Area2D" parent="."]
+script = ExtResource("7_5503c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(809, -210)
+shape = SubResource("RectangleShape2D_48f3t")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(806.344, 1100)
+shape = SubResource("RectangleShape2D_48f3t")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(-131, 445)
+shape = SubResource("RectangleShape2D_ymjri")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(1747, 444.875)
+shape = SubResource("RectangleShape2D_ymjri")
+debug_color = Color(0.249272, 0.0303537, 0.0536066, 0.42)
+
+[node name="Crystal" parent="." instance=ExtResource("8_ifqty")]
+position = Vector2(563, 824)
+targetLevel = 6
+
+[node name="Ground3" parent="." instance=ExtResource("2_1ti4t")]
+position = Vector2(565, 894)
+
+[connection signal="body_entered" from="LevelGeometry/Stompable" to="LevelGeometry/Stompable" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelGeometry2/Stompable" to="LevelGeometry2/Stompable" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelGeometry3/Stompable" to="LevelGeometry3/Stompable" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelGeometry3/Stompable2" to="LevelGeometry3/Stompable2" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
