@@ -21,6 +21,10 @@ window/size/viewport_width=1600
 window/size/viewport_height=900
 window/size/resizable=false
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdscript_formatter/plugin.cfg")
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
