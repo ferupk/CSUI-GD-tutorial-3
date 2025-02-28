@@ -5,8 +5,8 @@ extends CharacterBody2D
 @export var jump_speed = -300
 @export var stomp_speed = 500
 @export var bounce_multiplier = 1.5
-var isStomping = false
-var stompBounce = false
+var is_stomping = false
+var stomp_bounce = false
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -14,23 +14,23 @@ var stompBounce = false
 func _physics_process(delta):
 	velocity.y += delta * gravity
 
-	if is_on_floor() and isStomping:
+	if is_on_floor() and is_stomping:
 		print("Stomp end, bounce window open")
-		isStomping = false
-		stompBounce = true
+		is_stomping = false
+		stomp_bounce = true
 		$StompEndTimer.start()
 
 	if Input.is_action_just_pressed("ui_up"):
-		if stompBounce:
+		if stomp_bounce:
 			velocity.y = jump_speed * bounce_multiplier
-			stompBounce = false
+			stomp_bounce = false
 			print("Bounce used")
 		elif is_on_floor():
 			velocity.y = jump_speed
 
 	if not is_on_floor() and Input.is_action_just_pressed("ui_down"):
 		print("Stomp start")
-		isStomping = true
+		is_stomping = true
 		velocity.y = stomp_speed
 
 	if Input.is_action_pressed("ui_left"):
@@ -52,7 +52,7 @@ func determine_sprite():
 	elif velocity.x < 0:
 		sprite.flip_h = true
 
-	if isStomping:
+	if is_stomping:
 		sprite.play("Stomp")
 	elif not is_on_floor():
 		sprite.play("Mid-air")
@@ -63,5 +63,5 @@ func determine_sprite():
 
 
 func _on_stomp_end_timer_timeout() -> void:
-	stompBounce = false
+	stomp_bounce = false
 	print("Bounce Window Closed")
