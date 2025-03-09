@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var is_stomping = false
 var stomp_bounce = false
+var alive = true
 
 @onready var sprite = $AnimatedSprite2D
 @onready var sfx = {
@@ -20,8 +21,9 @@ var stomp_bounce = false
 
 
 func _physics_process(delta: float) -> void:
-	velocity.y += delta * gravity
-	_handle_input()
+	if alive:
+		velocity.y += delta * gravity
+		_handle_input()
 
 
 func _handle_input():
@@ -82,3 +84,16 @@ func _handle_input():
 func _on_stomp_end_timer_timeout() -> void:
 	# End stomp bounce period
 	stomp_bounce = false
+
+
+func kill() -> void:
+	# Kill player
+	alive = false
+	sprite.visible = false
+	sfx.Scream.play()
+
+	# Time until respawn
+	await get_tree().create_timer(3).timeout
+
+	# Delete node
+	self.queue_free()

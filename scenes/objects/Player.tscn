@@ -123,7 +123,7 @@ stream = ExtResource("3_m2r2h")
 
 [node name="Scream" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_at23a")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="Slam" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_i67hr")
