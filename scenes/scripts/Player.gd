@@ -94,6 +94,3 @@ func kill() -> void:
 
 	# Time until respawn
 	await get_tree().create_timer(3).timeout
-
-	# Delete node
-	self.queue_free()
