@@ -5,63 +5,72 @@ extends CharacterBody2D
 @export var jump_speed = -300
 @export var stomp_speed = 500
 @export var bounce_multiplier = 1.5
+
+
 var is_stomping = false
 var stomp_bounce = false
+
 
 @onready var sprite = $AnimatedSprite2D
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	velocity.y += delta * gravity
+	_handle_input()
 
+
+func _handle_input():
+	# Landing an air stomp
 	if is_on_floor() and is_stomping:
-		print("Stomp end, bounce window open")
 		is_stomping = false
+
+		# Start stomp bounce period
 		stomp_bounce = true
 		$StompEndTimer.start()
 
 	if Input.is_action_just_pressed("ui_up"):
+		# Stomp bounce
 		if stomp_bounce:
 			velocity.y = jump_speed * bounce_multiplier
 			stomp_bounce = false
-			print("Bounce used")
+		# Regular jump
 		elif is_on_floor():
 			velocity.y = jump_speed
 
+	# Starting an air stomp
 	if not is_on_floor() and Input.is_action_just_pressed("ui_down"):
 		print("Stomp start")
 		is_stomping = true
 		velocity.y = stomp_speed
 
-	if Input.is_action_pressed("ui_left"):
-		velocity.x = -walk_speed
-	elif Input.is_action_pressed("ui_right"):
-		velocity.x = walk_speed
+	# Horizontal movement
+	var direction := Input.get_axis("ui_left", "ui_right")
+	if direction:
+		velocity.x = direction * walk_speed
+		# Sprite direction
+		if direction > 0:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
 	else:
-		velocity.x = 0
+		velocity.x = move_toward(velocity.x, 0, walk_speed)
 
-	determine_sprite()
+	# Determine animation
+	var animation = "Idle"
+	if is_stomping:
+		animation = "Stomp"
+	elif not is_on_floor():
+		animation = "Mid-air"
+	elif direction:
+		animation = "Walk"
 
-	# "move_and_slide" already takes delta time into account.
+	# Play animation
+	if sprite.animation != animation:
+		sprite.play(animation)
+
 	move_and_slide()
 
 
-func determine_sprite():
-	if velocity.x > 0:
-		sprite.flip_h = false
-	elif velocity.x < 0:
-		sprite.flip_h = true
-
-	if is_stomping:
-		sprite.play("Stomp")
-	elif not is_on_floor():
-		sprite.play("Mid-air")
-	elif velocity.x:
-		sprite.play("Walk")
-	else:
-		sprite.play("Idle")
-
-
 func _on_stomp_end_timer_timeout() -> void:
+	# End stomp bounce period
 	stomp_bounce = false
-	print("Bounce Window Closed")
