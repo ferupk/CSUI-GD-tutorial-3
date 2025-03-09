@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhxnuopu4qxbr"]
 
+[ext_resource type="Script" path="res://scenes/scripts/StartGame.gd" id="1_ddk8h"]
 [ext_resource type="PackedScene" uid="uid://c5wij3gx6afh0" path="res://scenes/objects/Ground.tscn" id="1_e3h3q"]
 [ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="2_g50nx"]
-[ext_resource type="AudioStream" uid="uid://deu6dwb6q52x5" path="res://assets/sounds/bgm.wav" id="6_r001b"]
 [ext_resource type="PackedScene" uid="uid://cexlxvmwycnyg" path="res://scenes/objects/Crystal.tscn" id="7_lfrc0"]
 [ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="8_8yhqc"]
 [ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="9_3211a"]
@@ -14,6 +14,7 @@ size = Vector2(1787.31, 76)
 size = Vector2(89.5, 1385.75)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_ddk8h")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -255
@@ -82,9 +83,5 @@ bbcode_enabled = true
 text = "[font=res://assets/fonts/Rodin-Pro-DB.otf]Help get The Individual to the crystal!
 
 Use the arrow keys to move around."
-
-[node name="BGM" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_r001b")
-autoplay = true
 
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
