@@ -6,10 +6,8 @@ extends CharacterBody2D
 @export var stomp_speed = 500
 @export var bounce_multiplier = 1.5
 
-
 var is_stomping = false
 var stomp_bounce = false
-
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -28,7 +26,7 @@ func _handle_input():
 		stomp_bounce = true
 		$StompEndTimer.start()
 
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("jump"):
 		# Stomp bounce
 		if stomp_bounce:
 			velocity.y = jump_speed * bounce_multiplier
@@ -38,13 +36,12 @@ func _handle_input():
 			velocity.y = jump_speed
 
 	# Starting an air stomp
-	if not is_on_floor() and Input.is_action_just_pressed("ui_down"):
-		print("Stomp start")
+	if not is_on_floor() and Input.is_action_just_pressed("stomp"):
 		is_stomping = true
 		velocity.y = stomp_speed
 
 	# Horizontal movement
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * walk_speed
 		# Sprite direction
