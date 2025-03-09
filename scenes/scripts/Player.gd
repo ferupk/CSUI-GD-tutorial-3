@@ -10,6 +10,13 @@ var is_stomping = false
 var stomp_bounce = false
 
 @onready var sprite = $AnimatedSprite2D
+@onready var sfx = {
+	"Jump": $SFX/Jump,
+	"Scream": $SFX/Scream,
+	"Stomp": $SFX/Stomp,
+	"Bounce": $SFX/StompBounce,
+	"Slam": $SFX/Slam,
+}
 
 
 func _physics_process(delta: float) -> void:
@@ -21,6 +28,7 @@ func _handle_input():
 	# Landing an air stomp
 	if is_on_floor() and is_stomping:
 		is_stomping = false
+		sfx.Slam.play()
 
 		# Start stomp bounce period
 		stomp_bounce = true
@@ -31,14 +39,17 @@ func _handle_input():
 		if stomp_bounce:
 			velocity.y = jump_speed * bounce_multiplier
 			stomp_bounce = false
+			sfx.Bounce.play()
 		# Regular jump
 		elif is_on_floor():
 			velocity.y = jump_speed
+			sfx.Jump.play()
 
 	# Starting an air stomp
 	if not is_on_floor() and Input.is_action_just_pressed("stomp"):
 		is_stomping = true
 		velocity.y = stomp_speed
+		sfx.Stomp.play()
 
 	# Horizontal movement
 	var direction := Input.get_axis("move_left", "move_right")
