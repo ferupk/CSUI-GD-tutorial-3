@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=4 uid="uid://dhxnuopu4qxbr"]
+
+[ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="2_70rtb"]
+[ext_resource type="PackedScene" uid="uid://d4acexntejrsb" path="res://scenes/objects/FireNew.tscn" id="2_tk42i"]
+[ext_resource type="Texture2D" uid="uid://bk4v6um5snwsb" path="res://assets/spritesheets/world_tile.png" id="2_yronp"]
+[ext_resource type="PackedScene" uid="uid://bmrgt6f5m6vq1" path="res://scenes/objects/Breakable.tscn" id="3_dtnna"]
+[ext_resource type="PackedScene" uid="uid://dpjqe4smqrq88" path="res://scenes/objects/CrystalNew.tscn" id="4_kfngp"]
+[ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="5_3lsew"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ioav5"]
+scenes/2/scene = ExtResource("2_tk42i")
+scenes/3/scene = ExtResource("3_dtnna")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ykd5"]
+texture = ExtResource("2_yronp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:3/animation_columns = 2
+1:3/animation_speed = 3.0
+1:3/animation_mode = 1
+1:3/animation_frame_0/duration = 1.0
+1:3/animation_frame_1/duration = 1.0
+1:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_e56u5"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_5ykd5")
+sources/0 = SubResource("TileSetScenesCollectionSource_ioav5")
+
+[node name="LevelTilemapTest" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -255
+offset_right = 1600.0
+offset_bottom = 901.0
+texture = ExtResource("2_70rtb")
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAGAAoAAQAAAAIAAAAHAAoAAQABAAIAAAAIAAoAAQABAAIAAAAJAAoAAQABAAIAAAAKAAoAAQABAAIAAAALAAoAAQABAAIAAAAMAAoAAQABAAIAAAANAAoAAQABAAIAAAAOAAkAAQABAAAAAAAOAAoAAQABAAIAAAAPAAoAAQABAAIAAAAQAAoAAQABAAIAAAARAAoAAQABAAIAAAASAAoAAQACAAIAAAAGAAkAAQAAAAAAAAAHAAkAAQABAAAAAAAIAAkAAQABAAAAAAAJAAkAAQABAAAAAAAKAAkAAQABAAAAAAALAAkAAQABAAAAAAAMAAkAAQABAAAAAAANAAkAAQABAAAAAAAOAAgAAQABAAMAAAAPAAkAAQABAAAAAAAQAAkAAQABAAAAAAARAAkAAQABAAAAAAASAAkAAQACAAAAAAAEAAgAAQACAAIAAAADAAgAAQABAAIAAAACAAgAAQAAAAIAAAACAAcAAQAAAAEAAAACAAYAAQAAAAAAAAADAAYAAQABAAAAAAAEAAYAAQACAAAAAAAEAAcAAQACAAEAAAADAAcAAQABAAEAAAAUAAUAAQAAAAMAAAAOAAQAAQABAAAAAAAOAAUAAQABAAIAAAAPAAQAAQABAAAAAAAPAAUAAQABAAIAAAAQAAQAAQACAAAAAAAQAAUAAQACAAIAAAANAAQAAQAAAAAAAAANAAUAAQAAAAIAAAAHAAMAAQAAAAAAAAAIAAMAAQABAAAAAAAJAAMAAQACAAAAAAAHAAQAAQAAAAIAAAAIAAQAAQABAAIAAAAJAAQAAQACAAIAAAAWAAgAAAAAAAAAAwAKAAgAAAAAAAAAAgA=")
+tile_set = SubResource("TileSet_e56u5")
+
+[node name="Crystal" parent="." instance=ExtResource("4_kfngp")]
+position = Vector2(928, 224)
+
+[node name="Player" parent="." instance=ExtResource("5_3lsew")]
+position = Vector2(480, 526)
+gravity = 500.0
+walk_speed = 250
+jump_speed = -320
+stomp_speed = 800
