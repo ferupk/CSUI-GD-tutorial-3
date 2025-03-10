@@ -89,8 +89,8 @@ func _on_stomp_end_timer_timeout() -> void:
 func kill() -> void:
 	# Kill player
 	alive = false
-	sprite.visible = false
 	sfx.Scream.play()
+	sprite.play("Die")
 
 	# Time until respawn
 	await get_tree().create_timer(3).timeout
