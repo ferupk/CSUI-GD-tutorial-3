@@ -228,27 +228,33 @@ current = true
 
 [node name="Jump" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_m2r2h")
+bus = &"Player SFX"
 
 [node name="Scream" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_at23a")
 volume_db = -15.0
+bus = &"Player SFX"
 
 [node name="Slam" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_i67hr")
 volume_db = -5.0
 pitch_scale = 1.2
+bus = &"Player SFX"
 
 [node name="Stomp" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("6_wqvrl")
 volume_db = -10.0
+bus = &"Player SFX"
 
 [node name="StompBounce" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_m2r2h")
 pitch_scale = 0.67
+bus = &"Player SFX"
 
 [node name="Win" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("7_uln2r")
 volume_db = -10.0
 pitch_scale = 1.05
+bus = &"Player SFX"
 
 [connection signal="timeout" from="StompEndTimer" to="." method="_on_stomp_end_timer_timeout"]
