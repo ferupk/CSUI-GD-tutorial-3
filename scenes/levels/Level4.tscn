@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="1_dwpth"]
 [ext_resource type="PackedScene" uid="uid://d4acexntejrsb" path="res://scenes/objects/FireNew.tscn" id="2_210e0"]
 [ext_resource type="PackedScene" uid="uid://bmrgt6f5m6vq1" path="res://scenes/objects/Breakable.tscn" id="3_q5xg4"]
-[ext_resource type="Texture2D" uid="uid://bk4v6um5snwsb" path="res://assets/spritesheets/world_tile.png" id="4_6cv21"]
+[ext_resource type="Texture2D" uid="uid://dgam05dlmpw3w" path="res://assets/spritesheets/world_tile.png" id="4_6cv21"]
 [ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="4_bkgef"]
 [ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="5_6a5w5"]
 [ext_resource type="PackedScene" uid="uid://dpjqe4smqrq88" path="res://scenes/objects/CrystalNew.tscn" id="6_3nvwg"]

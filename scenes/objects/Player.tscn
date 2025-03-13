@@ -248,7 +248,7 @@ pitch_scale = 0.67
 
 [node name="Win" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("7_uln2r")
-volume_db = -7.0
+volume_db = -10.0
 pitch_scale = 1.05
 
 [connection signal="timeout" from="StompEndTimer" to="." method="_on_stomp_end_timer_timeout"]
