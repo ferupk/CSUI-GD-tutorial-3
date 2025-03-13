@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 var is_stomping = false
 var stomp_bounce = false
-var alive = true
+var controllable = true
 
 @onready var sprite = $AnimatedSprite2D
 @onready var sfx = {
@@ -17,13 +17,15 @@ var alive = true
 	"Stomp": $SFX/Stomp,
 	"Bounce": $SFX/StompBounce,
 	"Slam": $SFX/Slam,
+	"Win": $SFX/Win
 }
 
 
 func _physics_process(delta: float) -> void:
-	if alive:
-		velocity.y += delta * gravity
+	velocity.y += delta * gravity
+	if controllable:
 		_handle_input()
+	move_and_slide()
 
 
 func _handle_input():
@@ -78,19 +80,26 @@ func _handle_input():
 	if sprite.animation != animation:
 		sprite.play(animation)
 
-	move_and_slide()
-
 
 func _on_stomp_end_timer_timeout() -> void:
 	# End stomp bounce period
 	stomp_bounce = false
 
 
+func _disable_movement() -> void:
+	controllable = false
+	velocity = Vector2(0, 0)
+
+
 func kill() -> void:
 	# Kill player
-	alive = false
+	_disable_movement()
 	sfx.Scream.play()
 	sprite.play("Die")
 
-	# Time until respawn
-	await get_tree().create_timer(3).timeout
+
+func win() -> void:
+	# Player wins
+	_disable_movement()
+	sfx.Win.play()
+	sprite.play("Win")

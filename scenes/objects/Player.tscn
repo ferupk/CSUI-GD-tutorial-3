@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cxy3425b0yeot"]
+[gd_scene load_steps=32 format=3 uid="uid://cxy3425b0yeot"]
 
 [ext_resource type="Script" path="res://scenes/scripts/Player.gd" id="1_sndv4"]
 [ext_resource type="Texture2D" uid="uid://bgrr5vb5dc5rn" path="res://assets/spritesheets/the_individual.png" id="2_nww8k"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cc8ykuh43ome3" path="res://assets/sounds/scream.wav" id="4_at23a"]
 [ext_resource type="AudioStream" uid="uid://by56jp1okwhvl" path="res://assets/sounds/slam.wav" id="5_i67hr"]
 [ext_resource type="AudioStream" uid="uid://muaqowd8ymr" path="res://assets/sounds/stomp.wav" id="6_wqvrl"]
+[ext_resource type="AudioStream" uid="uid://tygvsqkycl7t" path="res://assets/sounds/win.wav" id="7_uln2r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhedk"]
 atlas = ExtResource("2_nww8k")
@@ -78,6 +79,22 @@ region = Rect2(312, 0, 78, 104)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bftwf"]
 atlas = ExtResource("2_nww8k")
 region = Rect2(234, 0, 78, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dabhp"]
+atlas = ExtResource("2_nww8k")
+region = Rect2(0, 208, 78, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caall"]
+atlas = ExtResource("2_nww8k")
+region = Rect2(78, 208, 78, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrlvc"]
+atlas = ExtResource("2_nww8k")
+region = Rect2(156, 208, 78, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkyl2"]
+atlas = ExtResource("2_nww8k")
+region = Rect2(234, 208, 78, 104)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4srkf"]
 animations = [{
@@ -162,6 +179,26 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dabhp")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_caall")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_xrlvc")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_caall")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkyl2")
+}],
+"loop": true,
+"name": &"Win",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jthp7"]
@@ -205,5 +242,10 @@ volume_db = -10.0
 [node name="StompBounce" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_m2r2h")
 pitch_scale = 0.67
+
+[node name="Win" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_uln2r")
+volume_db = -7.0
+pitch_scale = 1.05
 
 [connection signal="timeout" from="StompEndTimer" to="." method="_on_stomp_end_timer_timeout"]
