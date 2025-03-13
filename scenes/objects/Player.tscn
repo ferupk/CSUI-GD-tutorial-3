@@ -221,6 +221,9 @@ shape = SubResource("RectangleShape2D_jthp7")
 wait_time = 0.1
 one_shot = true
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="Jump" type="AudioStreamPlayer" parent="SFX"]
