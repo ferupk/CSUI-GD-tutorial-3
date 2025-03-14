@@ -23,7 +23,7 @@ var controllable = true
 
 func _ready() -> void:
 	if no_control:
-		controllable = false
+		_disable_movement()
 
 
 func _physics_process(delta: float) -> void:
