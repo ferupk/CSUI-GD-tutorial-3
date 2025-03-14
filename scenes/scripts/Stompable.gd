@@ -10,8 +10,10 @@ func _on_body_entered(body: Node2D):
 
 
 func _break():
-	$Sprites.call_deferred("set_visible", false)
 	$CollisionShape2D.call_deferred("set_disabled", true)
+
+	for sprite in $Sprites.get_children():
+		sprite.play("Break")
 
 	break_sound.play()
 	await break_sound.finished
