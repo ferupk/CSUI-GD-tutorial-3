@@ -4,6 +4,7 @@ const FADE_TRANS = Tween.TRANS_SINE
 const FADE_DURATION = 1
 
 @export var target_level = 1
+@export var last = false
 
 @onready var hum = $AudioStreamPlayer2D
 @onready var fade_out_tween: Tween
@@ -14,9 +15,13 @@ func _on_area_2d_body_entered(body: Node2D):
 		body.win()
 		_end_hum()
 		await get_tree().create_timer(3.5).timeout
-		get_tree().call_deferred(
-			"change_scene_to_file", "res://scenes/levels/Level%s.tscn" % target_level
-		)
+
+		if last:
+			get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/End.tscn")
+		else:
+			get_tree().call_deferred(
+				"change_scene_to_file", "res://scenes/levels/Level%s.tscn" % target_level
+			)
 
 
 func _end_hum():

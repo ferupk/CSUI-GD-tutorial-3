@@ -116,6 +116,7 @@ text = "[font=res://assets/fonts/Rodin-Pro-DB.otf] [i] LEVEL 10"
 
 [node name="Crystal" parent="." instance=ExtResource("6_slssm")]
 position = Vector2(1408, 96)
+last = true
 
 [node name="Player" parent="." instance=ExtResource("4_tgbov")]
 position = Vector2(256, 654)

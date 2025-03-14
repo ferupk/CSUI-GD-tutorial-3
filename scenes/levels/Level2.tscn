@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="8_xeahk"]
 [ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="9_jnij1"]
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1i0k6"]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dcp1f"]
 scenes/2/scene = ExtResource("2_j6ce7")
 scenes/3/scene = ExtResource("3_e1ghr")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poabh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nl6y1"]
 texture = ExtResource("4_c5oty")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -55,8 +55,8 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_ho7sw"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_poabh")
-sources/0 = SubResource("TileSetScenesCollectionSource_1i0k6")
+sources/1 = SubResource("TileSetAtlasSource_nl6y1")
+sources/0 = SubResource("TileSetScenesCollectionSource_dcp1f")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qfky"]
 size = Vector2(64, 64)

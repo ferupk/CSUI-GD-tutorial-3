@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var jump_speed = -300
 @export var stomp_speed = 500
 @export var bounce_multiplier = 1.5
+@export var no_control = false
 
 var is_stomping = false
 var stomp_bounce = false
@@ -19,6 +20,11 @@ var controllable = true
 	"Slam": $SFX/Slam,
 	"Win": $SFX/Win
 }
+
+
+func _ready() -> void:
+	if no_control:
+		controllable = false
 
 
 func _physics_process(delta: float) -> void:

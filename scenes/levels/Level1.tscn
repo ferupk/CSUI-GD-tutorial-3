@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=4 uid="uid://dhxnuopu4qxbr"]
+[gd_scene load_steps=13 format=4 uid="uid://dhxnuopu4qxbr"]
 
-[ext_resource type="Script" path="res://scenes/scripts/StartGame.gd" id="1_ddk8h"]
 [ext_resource type="PackedScene" uid="uid://cxy3425b0yeot" path="res://scenes/objects/Player.tscn" id="2_g50nx"]
 [ext_resource type="PackedScene" uid="uid://d4acexntejrsb" path="res://scenes/objects/FireNew.tscn" id="2_umlco"]
 [ext_resource type="PackedScene" uid="uid://bmrgt6f5m6vq1" path="res://scenes/objects/Breakable.tscn" id="3_m2xwc"]
@@ -9,11 +8,11 @@
 [ext_resource type="Script" path="res://scenes/scripts/DeathPlane.gd" id="8_8yhqc"]
 [ext_resource type="Texture2D" uid="uid://flmtc1pkhyw7" path="res://assets/background_sky.jpg" id="9_3211a"]
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1i0k6"]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2041t"]
 scenes/2/scene = ExtResource("2_umlco")
 scenes/3/scene = ExtResource("3_m2xwc")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poabh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6uxx"]
 texture = ExtResource("4_llbmv")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -56,8 +55,8 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_ho7sw"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_poabh")
-sources/0 = SubResource("TileSetScenesCollectionSource_1i0k6")
+sources/1 = SubResource("TileSetAtlasSource_r6uxx")
+sources/0 = SubResource("TileSetScenesCollectionSource_2041t")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phngb"]
 size = Vector2(64, 64)
@@ -66,7 +65,6 @@ size = Vector2(64, 64)
 size = Vector2(64, 64)
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_ddk8h")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -4096

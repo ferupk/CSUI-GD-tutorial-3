@@ -9,3 +9,7 @@ func _ready() -> void:
 
 func play() -> void:
 	$BGM.play()
+
+
+func stop() -> void:
+	$BGM.stop()
