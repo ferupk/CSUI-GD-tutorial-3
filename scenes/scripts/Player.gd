@@ -18,7 +18,6 @@ var controllable = true
 	"Stomp": $SFX/Stomp,
 	"Bounce": $SFX/StompBounce,
 	"Slam": $SFX/Slam,
-	"Win": $SFX/Win
 }
 
 
@@ -107,5 +106,4 @@ func kill() -> void:
 func win() -> void:
 	# Player wins
 	_disable_movement()
-	sfx.Win.play()
 	sprite.play("Win")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cxy3425b0yeot"]
+[gd_scene load_steps=31 format=3 uid="uid://cxy3425b0yeot"]
 
 [ext_resource type="Script" path="res://scenes/scripts/Player.gd" id="1_sndv4"]
 [ext_resource type="Texture2D" uid="uid://bgrr5vb5dc5rn" path="res://assets/spritesheets/the_individual.png" id="2_nww8k"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cc8ykuh43ome3" path="res://assets/sounds/scream.wav" id="4_at23a"]
 [ext_resource type="AudioStream" uid="uid://by56jp1okwhvl" path="res://assets/sounds/slam.wav" id="5_i67hr"]
 [ext_resource type="AudioStream" uid="uid://muaqowd8ymr" path="res://assets/sounds/stomp.wav" id="6_wqvrl"]
-[ext_resource type="AudioStream" uid="uid://tygvsqkycl7t" path="res://assets/sounds/win.wav" id="7_uln2r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhedk"]
 atlas = ExtResource("2_nww8k")
@@ -249,12 +248,6 @@ bus = &"Player SFX"
 [node name="StompBounce" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_m2r2h")
 pitch_scale = 0.67
-bus = &"Player SFX"
-
-[node name="Win" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("7_uln2r")
-volume_db = -10.0
-pitch_scale = 1.05
 bus = &"Player SFX"
 
 [connection signal="timeout" from="StompEndTimer" to="." method="_on_stomp_end_timer_timeout"]

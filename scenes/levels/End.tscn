@@ -87,3 +87,12 @@ offset_bottom = 272.0
 theme_override_font_sizes/italics_font_size = 72
 bbcode_enabled = true
 text = "[font=res://assets/fonts/Rodin-Pro-DB.otf][i]Congratulations!"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 624.0
+offset_top = 672.0
+offset_right = 944.0
+offset_bottom = 736.0
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[font=res://assets/fonts/Rodin-Pro-DB.otf]Returning to start menu..."
