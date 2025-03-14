@@ -4,6 +4,9 @@
 - **NPM:** 2106750351
 - **Topic:** Introduction to Game Programming with GDScript for Implementing Basic 2D Game Mechanics
 
+Commit: [14c8c7f](https://github.com/ferupk/CSUI-GD-tutorial-3/tree/14c8c7f7d692b8e7088bb12b27f6d2c93757f300)<br>
+Release: [v1.0.0](https://github.com/ferupk/CSUI-GD-tutorial-3/releases/tag/v1.0.0)
+
 ---
 
 ## Latihan Mandiri: Eksplorasi Mekanika Pergerakan
@@ -222,6 +225,9 @@ Terakhir, berikut merupakan beberapa implementasi lain yang telah saya terapkan 
 - **Name:** Feru Pratama Kartajaya
 - **NPM:** 2106750351
 - **Topic:** Assets Creation & Integration
+
+Commit: [bdc536c](https://github.com/ferupk/CSUI-GD-tutorial-3/tree/bdc536cd5ef8d3e9677d0d79c8a42ec3178aa1dd)<br>
+Release: [v1.1.0](https://github.com/ferupk/CSUI-GD-tutorial-3/releases/tag/v1.1.0)
 
 ---
 
